@@ -188,14 +188,14 @@ st.markdown("""
 # Suggested questions
 # ---------------------------------------------------------------------------
 SUGGESTED_QUESTIONS = [
-    ("🎯", "What are GitLab's core values (CREDIT)?"),
-    ("🌍", "How does all-remote work at GitLab?"),
-    ("👥", "What is the hiring process at GitLab?"),
-    ("🚀", "Explain GitLab's product direction and AI strategy"),
-    ("🔒", "How does GitLab handle security testing?"),
-    ("📋", "What is the onboarding experience like?"),
-    ("📞", "How are meetings conducted in an all-remote company?"),
-    ("⚡", "What is TeamOps?"),
+    ("What are GitLab's core values (CREDIT)?"),
+    ("How does all-remote work at GitLab?"),
+    ("What is the hiring process at GitLab?"),
+    ("Explain GitLab's product direction and AI strategy"),
+    ("How does GitLab handle security testing?"),
+    ("What is the onboarding experience like?"),
+    ("How are meetings conducted in an all-remote company?"),
+    ("What is TeamOps?"),
 ]
 
 
@@ -243,7 +243,7 @@ with st.sidebar:
 
     api_key = get_api_key()
     if not api_key:
-        st.markdown("#### 🔑 API Configuration")
+        st.markdown("#### API Configuration")
         user_key = st.text_input(
             "Groq API Key",
             type="password",
@@ -255,7 +255,7 @@ with st.sidebar:
             api_key = user_key
         st.markdown(
             '<div class="info-box">'
-            '💡 Get a free API key from <a href="https://console.groq.com/keys" target="_blank">'
+            ' Get a free API key from <a href="https://console.groq.com/keys" target="_blank">'
             "Groq Console</a>.<br>No credit card needed — free tier includes "
             "30 req/min and 14,400 req/day.</div>",
             unsafe_allow_html=True,
@@ -272,16 +272,16 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("#### 🔍 How it works")
     st.markdown(
-        "1. 📝 Your question is embedded locally\n"
-        "2. 🔎 Similar handbook sections retrieved via FAISS\n"
-        "3. 🧠 Context + question sent to Llama 3.3\n"
-        "4. ✅ Grounded answer with source citations"
+        "1.  Your question is embedded locally\n"
+        "2.  Similar handbook sections retrieved via FAISS\n"
+        "3.  Context + question sent to Llama 3.3\n"
+        "4.  Grounded answer with source citations"
     )
 
     st.markdown("---")
     st.markdown(
         '<div class="transparency-badge">'
-        "<strong>🛡️ Transparency & Safety</strong><br>"
+        "<strong> Transparency & Safety</strong><br>"
         "• Answers grounded in GitLab's public handbook<br>"
         "• Source citations for verification<br>"
         "• PII detection & input sanitization<br>"
@@ -294,7 +294,7 @@ with st.sidebar:
     st.markdown("---")
     col_clear, col_export = st.columns(2)
     with col_clear:
-        if st.button("🗑️ Clear Chat", use_container_width=True):
+        if st.button(" Clear Chat", use_container_width=True):
             st.session_state.messages = []
             st.session_state.query_count = 0
             st.session_state.feedback = {}
@@ -305,7 +305,7 @@ with st.sidebar:
             for m in st.session_state.messages:
                 chat_export.append({"role": m["role"], "content": m["content"]})
             st.download_button(
-                "📥 Export",
+                " Export",
                 data=json.dumps(chat_export, indent=2),
                 file_name=f"gitlab_chat_{datetime.now().strftime('%Y%m%d_%H%M')}.json",
                 mime="application/json",
@@ -364,7 +364,7 @@ if api_key and not st.session_state.client_ready:
         st.error(f"Failed to initialize Groq client: {e}")
 
 if not api_key:
-    st.info("👈 Enter your **Groq API key** in the sidebar to start chatting. It's free — no credit card needed.")
+    st.info(" Enter your **Groq API key** in the sidebar to start chatting. It's free — no credit card needed.")
     st.stop()
 
 if not st.session_state.client_ready:
@@ -395,20 +395,20 @@ st.markdown("")
 if not st.session_state.messages:
     st.markdown(
         '<div class="welcome-card">'
-        "<h2>👋 Welcome!</h2>"
+        "<h2>Welcome!</h2>"
         "<p>I'm your AI guide to GitLab's Handbook and Direction pages. "
         "Ask me about company values, remote work culture, engineering practices, "
         "hiring, product strategy, or anything else from the handbook.</p>"
         '<div class="features">'
-        '<div class="feat">📖 39 Handbook Pages</div>'
-        '<div class="feat">🔍 RAG-Powered Search</div>'
-        '<div class="feat">📚 Source Citations</div>'
-        '<div class="feat">🛡️ Guardrails Active</div>'
+        '<div class="feat">39 Handbook Pages</div>'
+        '<div class="feat">RAG-Powered Search</div>'
+        '<div class="feat">Source Citations</div>'
+        '<div class="feat">Guardrails Active</div>'
         "</div></div>",
         unsafe_allow_html=True,
     )
 
-    st.markdown("#### 💡 Try asking about...")
+    st.markdown("#### Try asking about...")
     cols = st.columns(2)
     for i, (icon, question) in enumerate(SUGGESTED_QUESTIONS):
         with cols[i % 2]:
