@@ -410,9 +410,9 @@ if not st.session_state.messages:
 
     st.markdown("#### Try asking about...")
     cols = st.columns(2)
-    for i, (icon, question) in enumerate(SUGGESTED_QUESTIONS):
+    for i, (question) in enumerate(SUGGESTED_QUESTIONS):
         with cols[i % 2]:
-            if st.button(f"{icon}  {question}", key=f"suggest_{i}", use_container_width=True):
+            if st.button(f"{question}", key=f"suggest_{i}", use_container_width=True):
                 st.session_state.pending_query = question
                 st.rerun()
 
