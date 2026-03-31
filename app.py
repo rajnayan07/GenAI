@@ -19,6 +19,9 @@ import streamlit as st
 load_dotenv()
 sys.path.insert(0, os.path.dirname(__file__))
 
+if not os.environ.get("HF_HOME"):
+    os.environ["HF_HOME"] = os.path.join(os.path.expanduser("~"), ".cache", "huggingface")
+
 from core.indexer import build_or_load_index
 from core.retriever import retrieve, format_context, get_source_citations
 from core.chatbot import create_chat_client, generate_response_stream
