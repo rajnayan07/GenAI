@@ -6,7 +6,7 @@ Built with **Streamlit**, **Groq (Llama 3.3 70B)**, **sentence-transformers**, a
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
@@ -17,12 +17,12 @@ Built with **Streamlit**, **Groq (Llama 3.3 70B)**, **sentence-transformers**, a
 | **Guardrails & Safety** | Input validation, PII detection, off-topic filtering, and prompt injection protection |
 | **Relevance Scoring** | Transparent relevance scores show how well sources match your question |
 | **Suggested Questions** | One-click starter questions to explore the handbook |
-| **Local Embeddings** | Embeddings run 100% locally — no API calls, no rate limits for search |
+| **Local Embeddings** | Embeddings run 100% locally - no API calls, no rate limits for search |
 | **Modern UI** | Clean, GitLab-themed interface with responsive design |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌──────────────────────┐
@@ -58,12 +58,12 @@ Built with **Streamlit**, **Groq (Llama 3.3 70B)**, **sentence-transformers**, a
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
 - Python 3.10+
-- A Groq API key ([get one free — no credit card](https://console.groq.com/keys))
+- A Groq API key ([get one free - no credit card](https://console.groq.com/keys))
 
 ### 1. Clone the repository
 
@@ -113,7 +113,7 @@ The app will open at `http://localhost:8501`. On first launch, it downloads the 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 genAI/
@@ -147,7 +147,7 @@ genAI/
 
 ---
 
-## 🔄 Refreshing the Data
+## Refreshing the Data
 
 The repository ships with pre-scraped seed data (39 handbook pages). To fetch the latest content:
 
@@ -164,7 +164,7 @@ streamlit run app.py
 
 ---
 
-## ☁️ Deployment
+## Deployment
 
 ### Streamlit Community Cloud (Recommended)
 
@@ -186,7 +186,7 @@ streamlit run app.py
 
 ---
 
-## 🛡️ Safety & Guardrails
+## Safety & Guardrails
 
 | Guard | Purpose |
 |---|---|
@@ -199,22 +199,22 @@ streamlit run app.py
 
 ---
 
-## 🧠 Key Technical Decisions
+## Key Technical Decisions
 
 | Decision | Rationale |
 |---|---|
-| **Local embeddings (sentence-transformers)** | Zero API calls for search — no rate limits, no billing, works offline |
+| **Local embeddings (sentence-transformers)** | Zero API calls for search - no rate limits, no billing, works offline |
 | **Groq + Llama 3.3 70B** | Free API, no credit card, extremely fast inference (~500 tokens/sec) |
 | **FAISS** | Lightweight, battle-tested vector search, no external services |
 | **Chunking with overlap** | Sentence-boundary splitting with 200-char overlap prevents context loss |
-| **Streaming responses** | Better UX — users see the answer forming in real-time |
-| **Separate retrieval & generation** | Transparency — users see exactly which sources informed the answer |
+| **Streaming responses** | Better UX - users see the answer forming in real-time |
+| **Separate retrieval & generation** | Transparency - users see exactly which sources informed the answer |
 
 ---
 
-## 🎨 Innovation Highlights
+## Innovation Highlights
 
-- **Hybrid architecture:** Local embeddings (zero cost, zero latency) + cloud LLM (Groq for speed) — best of both worlds.
+- **Hybrid architecture:** Local embeddings (zero cost, zero latency) + cloud LLM (Groq for speed) - best of both worlds.
 - **Transparency-first design:** Relevance scores and source citations are shown prominently, so users can verify answers against the original handbook.
 - **Guardrail suite:** Multi-layered input validation protects against PII leaks, prompt injection, and off-topic abuse.
 - **Employee-centric UX:** Suggested questions surface key handbook topics; follow-up conversations maintain context for exploratory learning.
@@ -222,7 +222,7 @@ streamlit run app.py
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [GitLab Handbook](https://handbook.gitlab.com/)
 - [GitLab Direction](https://about.gitlab.com/direction/)
@@ -232,6 +232,6 @@ streamlit run app.py
 
 ---
 
-## 📄 License
+## License
 
 This project is for educational purposes. GitLab's handbook content is publicly available under their terms of use.
