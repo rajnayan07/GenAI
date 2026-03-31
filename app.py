@@ -413,7 +413,7 @@ if not st.session_state.messages:
     for i, (icon, question) in enumerate(SUGGESTED_QUESTIONS):
         with cols[i % 2]:
             if st.button(f"{icon}  {question}", key=f"suggest_{i}", use_container_width=True):
-                st.session_state.messages.append({"role": "user", "content": question})
+                st.session_state.pending_query = question
                 st.rerun()
 
 
@@ -455,21 +455,26 @@ for idx, msg in enumerate(st.session_state.messages):
 
 
 # ---------------------------------------------------------------------------
-# Chat input
+# Chat input — handles both typed input and suggested question clicks
 # ---------------------------------------------------------------------------
-if user_input := st.chat_input("Ask about GitLab's handbook, values, culture, or direction..."):
-    guard_result = validate_input(user_input)
+user_input = st.chat_input("Ask about GitLab's handbook, values, culture, or direction...")
+
+pending = st.session_state.pop("pending_query", None)
+active_query = user_input or pending
+
+if active_query:
+    guard_result = validate_input(active_query)
 
     if not guard_result.is_valid:
         with st.chat_message("assistant", avatar="🦊"):
             st.warning(guard_result.message)
     else:
-        query = guard_result.sanitized_query or user_input
+        query = guard_result.sanitized_query or active_query
         is_relevant, relevance_hint = check_relevance(query)
 
-        st.session_state.messages.append({"role": "user", "content": user_input})
+        st.session_state.messages.append({"role": "user", "content": active_query})
         with st.chat_message("user"):
-            st.markdown(user_input)
+            st.markdown(active_query)
 
         with st.chat_message("assistant", avatar="🦊"):
             if relevance_hint:
