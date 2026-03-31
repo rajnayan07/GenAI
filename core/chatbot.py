@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 GENERATION_MODEL = "llama-3.3-70b-versatile"
 
-SYSTEM_PROMPT = f"""You are **GitLab Handbook Assistant**, an AI helper that answers questions
+SYSTEM_PROMPT = f"""You are **GitLab Handbook Assistant**,an AI helper that answers questions
 about GitLab's public Handbook and Direction pages.
 
 Your role:
