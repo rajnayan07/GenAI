@@ -1,5 +1,5 @@
 """
-GitLab Handbook AI Assistant — Streamlit Application
+GitLab Handbook AI Assistant - Streamlit Application
 
 A RAG-powered chatbot that helps users explore GitLab's Handbook
 and Direction pages through natural language conversation.
@@ -41,7 +41,7 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------------------
-# Custom CSS — enhanced with animations, dark mode, feedback, polish
+# Custom CSS - enhanced with animations,dark mode, feedback, polish
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
@@ -270,7 +270,7 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.markdown("#### 🔍 How it works")
+    st.markdown("#### How it works")
     st.markdown(
         "1.  Your question is embedded locally\n"
         "2.  Similar handbook sections retrieved via FAISS\n"
@@ -338,7 +338,7 @@ st.markdown(
 
 
 # ---------------------------------------------------------------------------
-# Initialize index (local — no API key needed)
+# Initialize index (local - no API key needed)
 # ---------------------------------------------------------------------------
 if not st.session_state.index_ready:
     with st.spinner("🔧 Building knowledge base locally..."):
@@ -455,7 +455,7 @@ for idx, msg in enumerate(st.session_state.messages):
 
 
 # ---------------------------------------------------------------------------
-# Chat input — handles both typed input and suggested question clicks
+# Chat input - handles both typed input and suggested question clicks
 # ---------------------------------------------------------------------------
 user_input = st.chat_input("Ask about GitLab's handbook, values, culture, or direction...")
 
